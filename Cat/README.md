@@ -37,7 +37,7 @@ t.interactive()
 
 ```
 
-Và sau khi chạy file(giờ đổi lại flag thành FLAG{} cho dễ nhìn :>):
+Và sau khi chạy file(giờ đổi lại flag thành FLAG{} cho dễ nhìn :> ) :
 
 ![image](https://user-images.githubusercontent.com/114044703/213352196-794745c5-359b-4ea6-a3e0-f3fc51228325.png)
 
