@@ -4,7 +4,7 @@ Ta được cung cấp 1 file binary với tên bài fmt xmaster thì với hint
 Use * to have a variable field width, equals to an signed integer on the stack, can combine with positional argument. Eg. %*10$c: print a number of characters equals to the 10th argument.
 ```
 
-Giờ ta sẽ nhìn sơ qua file binary được cung cấp và các chế độ bảo vệ
+Giờ ta sẽ nhìn qua file binary được cung cấp và các chế độ bảo vệ
 
 
 ![image](https://user-images.githubusercontent.com/114044703/213352879-e9926848-6445-4a04-9af9-ce90505da6a8.png)
