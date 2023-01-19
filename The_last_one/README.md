@@ -93,6 +93,9 @@ Thoạt nhìn thì đây là lỗi buffer over flow khi ```local_58``` chỉ có
 
 Tuy nhiên khi đi sâu vào hàm read_str thì có vẻ như là hàm đã đọc 0x58 + 1 byte -> ta có thể điều khiển được 1 byte của save rip -> Có khả năng cao đây là bài dạng ret2win
 
+![image](https://user-images.githubusercontent.com/114044703/213372842-af6bc97c-9438-48d7-9d98-10124cb42ba7.png)
+
+
 Ta thấy có hàm unknown có lệnh system("/bin/sh ") ta đang cần và có để dẫn tới được:
 
 ![image](https://user-images.githubusercontent.com/114044703/213370103-49eeeb96-e11c-4e6b-a462-efd679107fa5.png)
